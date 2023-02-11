@@ -1,11 +1,10 @@
 package com.geektech.rickandmorty
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
+import by.kirich1409.viewbindingdelegate.viewBinding
+import com.geektech.rickandmorty.core.BaseActivity
+import com.geektech.rickandmorty.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-    }
+class MainActivity : BaseActivity<ActivityMainBinding>() {
+
+    override val binding by viewBinding(ActivityMainBinding::bind)
 }
