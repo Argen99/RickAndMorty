@@ -1,4 +1,4 @@
-package com.geektech.rickandmorty.core
+package com.geektech.rickandmorty.core.base
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -11,6 +11,8 @@ abstract class BaseActivity<Binding : ViewBinding>: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-
+        initialize()
     }
+
+    protected open fun initialize() {}
 }
