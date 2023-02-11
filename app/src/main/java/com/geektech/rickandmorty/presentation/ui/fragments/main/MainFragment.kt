@@ -1,5 +1,6 @@
 package com.geektech.rickandmorty.presentation.ui.fragments.main
 
+import android.widget.Toast
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.geektech.rickandmorty.R
 import com.geektech.rickandmorty.core.base.BaseFragment
@@ -11,5 +12,9 @@ class MainFragment : BaseFragment<FragmentMainBinding, MainViewModel>(R.layout.f
     override val binding by viewBinding(FragmentMainBinding::bind)
     override val viewModel by viewModel<MainViewModel>()
 
+    override fun initialize() {
+        super.initialize()
+        Toast.makeText(requireContext(), "Hello", Toast.LENGTH_SHORT).show()
+    }
 
 }
