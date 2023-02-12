@@ -11,7 +11,7 @@ android {
         minSdk = AndroidConfig.minSdk
         targetSdk = AndroidConfig.targetSdk
 
-        buildConfigField("String", "BASE_URL", "\"https://rickandmortyapi.com/api\"")
+        buildConfigField("String", "BASE_URL", "\"https://rickandmortyapi.com/\"")
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")

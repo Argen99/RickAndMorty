@@ -11,4 +11,10 @@ class CharacterFragment : BaseFragment<FragmentCharacterBinding,
 
     override val binding by viewBinding(FragmentCharacterBinding::bind)
     override val viewModel by viewModel<CharacterViewModel>()
+
+    override fun initialize() {
+        binding.btn.setOnClickListener {
+            viewModel.getAllCharacters()
+        }
+    }
 }

@@ -14,7 +14,9 @@ val appModule = module {
     }
 
     viewModel<CharacterViewModel> {
-        CharacterViewModel()
+        CharacterViewModel(
+            getAllCharactersUseCase = get()
+        )
     }
 
     viewModel<EpisodeViewModel> {
