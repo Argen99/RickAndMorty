@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/User/Desktop/Android Studio/RickAndMorty/app/src/main/res/drawable/bg_tab_indicator.xml" value="0.131" />
         <entry key="..\:/Users/User/Desktop/Android Studio/RickAndMorty/app/src/main/res/layout/activity_main.xml" value="0.24456521739130435" />
+        <entry key="..\:/Users/User/Desktop/Android Studio/RickAndMorty/app/src/main/res/layout/fragment_character.xml" value="0.17572463768115942" />
         <entry key="..\:/Users/User/Desktop/Android Studio/RickAndMorty/app/src/main/res/layout/fragment_main.xml" value="0.17572463768115942" />
       </map>
     </option>
