@@ -9,11 +9,13 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.geektech.rickandmorty.R
 import com.geektech.rickandmorty.core.base.BaseFragment
 import com.geektech.rickandmorty.core.extensions.gone
+import com.geektech.rickandmorty.core.extensions.simpleScan
 import com.geektech.rickandmorty.databinding.FragmentEpisodeBinding
 import com.geektech.rickandmorty.presentation.ui.adapters.DefaultLoadStateAdapter
 import com.geektech.rickandmorty.presentation.ui.adapters.EpisodesPagingAdapter
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -36,6 +38,8 @@ class EpisodeFragment : BaseFragment<FragmentEpisodeBinding, EpisodeViewModel>(R
     }
 
     override fun setupObservers() {
+        scrollingToTopWhenFiltering()
+
         episodesAdapter.addLoadStateListener { state ->
             binding.progressBar.isVisible = state.source.refresh is LoadState.Loading
             if (state.refresh is LoadState.NotLoading)
@@ -60,5 +64,16 @@ class EpisodeFragment : BaseFragment<FragmentEpisodeBinding, EpisodeViewModel>(R
     }
 
     private fun tryAgain() {
-        episodesAdapter.retry()    }
+        episodesAdapter.retry()
+    }
+
+    @OptIn(ExperimentalCoroutinesApi::class)
+    private fun scrollingToTopWhenFiltering() = viewLifecycleOwner.lifecycleScope.launch {
+        episodesAdapter.loadStateFlow.map { it.refresh }
+            .simpleScan(2)
+            .collectLatest { (previousState, currentState) ->
+                if (previousState is LoadState.Loading && currentState is LoadState.NotLoading)
+                    binding.rvEpisodes.scrollToPosition(0)
+            }
+    }
 }

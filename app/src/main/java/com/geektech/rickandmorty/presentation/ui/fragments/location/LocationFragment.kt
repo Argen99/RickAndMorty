@@ -9,10 +9,13 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.geektech.rickandmorty.R
 import com.geektech.rickandmorty.core.base.BaseFragment
 import com.geektech.rickandmorty.core.extensions.gone
+import com.geektech.rickandmorty.core.extensions.simpleScan
 import com.geektech.rickandmorty.databinding.FragmentLocationBinding
 import com.geektech.rickandmorty.presentation.ui.adapters.DefaultLoadStateAdapter
 import com.geektech.rickandmorty.presentation.ui.adapters.LocationPagingAdapter
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -36,6 +39,8 @@ class LocationFragment : BaseFragment<FragmentLocationBinding,
     }
 
     override fun setupObservers() {
+        scrollingToTopWhenFiltering()
+
         locationAdapter.addLoadStateListener { state ->
             binding.progressBar.isVisible = state.source.refresh is LoadState.Loading
             if (state.refresh is LoadState.NotLoading)
@@ -62,4 +67,13 @@ class LocationFragment : BaseFragment<FragmentLocationBinding,
         locationAdapter.retry()
     }
 
+    @OptIn(ExperimentalCoroutinesApi::class)
+    private fun scrollingToTopWhenFiltering() = viewLifecycleOwner.lifecycleScope.launch {
+        locationAdapter.loadStateFlow.map { it.refresh }
+            .simpleScan(2)
+            .collectLatest { (previousState, currentState) ->
+                if (previousState is LoadState.Loading && currentState is LoadState.NotLoading)
+                    binding.rvLocations.scrollToPosition(0)
+            }
+    }
 }
