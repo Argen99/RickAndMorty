@@ -3,6 +3,7 @@ package com.geektech.rickandmorty.core.base
 import android.os.Bundle
 import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.viewbinding.ViewBinding
@@ -17,6 +18,7 @@ abstract class BaseActivity<Binding : ViewBinding>: AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        installSplashScreen()
         binding = inflateViewBinding(layoutInflater)
         setContentView(binding.root)
 

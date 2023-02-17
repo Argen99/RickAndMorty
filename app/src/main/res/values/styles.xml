@@ -30,4 +30,10 @@
         <item name="android:paddingHorizontal" tools:targetApi="o">@dimen/padding_8</item>
     </style>
 
+    <style name="Theme.App.Starting" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/dark_gray</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_rick</item>
+        <item name="postSplashScreenTheme">@style/Theme.RickAndMorty</item>
+    </style>
+
 </resources>

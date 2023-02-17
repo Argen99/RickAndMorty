@@ -10,6 +10,7 @@
         <entry key="..\:/Users/User/Desktop/Android Studio/RickAndMorty/app/src/main/res/drawable/ic_location1.xml" value="0.1" />
         <entry key="..\:/Users/User/Desktop/Android Studio/RickAndMorty/app/src/main/res/drawable/ic_location2.xml" value="0.1" />
         <entry key="..\:/Users/User/Desktop/Android Studio/RickAndMorty/app/src/main/res/drawable/ic_location3.xml" value="0.1" />
+        <entry key="..\:/Users/User/Desktop/Android Studio/RickAndMorty/app/src/main/res/drawable/ic_rick.xml" value="0.14" />
         <entry key="..\:/Users/User/Desktop/Android Studio/RickAndMorty/app/src/main/res/drawable/ic_untitled.xml" value="0.1" />
         <entry key="..\:/Users/User/Desktop/Android Studio/RickAndMorty/app/src/main/res/drawable/radio_not_selected.xml" value="0.1" />
         <entry key="..\:/Users/User/Desktop/Android Studio/RickAndMorty/app/src/main/res/drawable/radio_selected.xml" value="0.1" />
@@ -27,6 +28,8 @@
         <entry key="..\:/Users/User/Desktop/Android Studio/RickAndMorty/app/src/main/res/layout/item_loader.xml" value="0.2" />
         <entry key="..\:/Users/User/Desktop/Android Studio/RickAndMorty/app/src/main/res/layout/item_location.xml" value="0.21151079136690648" />
         <entry key="..\:/Users/User/Desktop/Android Studio/RickAndMorty/app/src/main/res/layout/load_state.xml" value="0.25" />
+        <entry key="..\:/Users/User/Desktop/Android Studio/RickAndMorty/app/src/main/res/mipmap-anydpi-v26/ic_app_icon.xml" value="0.14" />
+        <entry key="..\:/Users/User/Desktop/Android Studio/RickAndMorty/app/src/main/res/mipmap-anydpi-v26/ic_app_icon_round.xml" value="0.14" />
       </map>
     </option>
   </component>
