@@ -1,4 +1,4 @@
-package com.geektech.data.remote.models.character
+package com.geektech.data.remote.models
 
 data class InfoDto(
     val count: Int,

@@ -21,15 +21,15 @@ class MainFragment : BaseFragment<FragmentMainBinding, MainViewModel>(R.layout.f
 
         pagerAdapter.addFragment(
             EpisodeFragment(),
-            "Episode"
+            "Episodes"
         )
         pagerAdapter.addFragment(
             CharacterFragment(),
-            "Character"
+            "Characters"
         )
         pagerAdapter.addFragment(
             LocationFragment(),
-            "Location"
+            "Locations"
         )
         binding.fragmentPager.apply {
             adapter = pagerAdapter

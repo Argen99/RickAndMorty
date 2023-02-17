@@ -1,20 +1,43 @@
+@file:OptIn(FlowPreview::class)
+
 package com.geektech.rickandmorty.presentation.ui.fragments.character
 
-import com.geektech.domain.models.RickAndMortyResponse
+import androidx.lifecycle.viewModelScope
+import androidx.paging.PagingData
+import androidx.paging.cachedIn
+import com.geektech.domain.models.characters.Character
 import com.geektech.domain.use_case.GetAllCharactersUseCase
 import com.geektech.rickandmorty.core.base.BaseViewModel
-import com.geektech.rickandmorty.core.ui_state.UIState
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.FlowPreview
+import kotlinx.coroutines.flow.*
 
+@OptIn(ExperimentalCoroutinesApi::class)
 class CharacterViewModel(
     private val getAllCharactersUseCase: GetAllCharactersUseCase
 ): BaseViewModel() {
 
-    private val _getAllCharactersState = MutableStateFlow<UIState<RickAndMortyResponse>>(UIState.Empty())
-    val getAllCharactersState = _getAllCharactersState.asStateFlow()
+    val charactersFlow: Flow<PagingData<Character>>
+    private val filterBy = MutableStateFlow("")
+    private val searchBy = MutableStateFlow("")
 
-    fun getAllCharacters(page: Int? = null, status: String? = null) {
-        getAllCharactersUseCase.invoke(page, status).collectFlow(_getAllCharactersState)
+    init {
+        charactersFlow = combine(searchBy, filterBy) { search, filter ->
+            Pair(search, filter)
+        }.flatMapLatest {(search, filter) ->
+            getAllCharactersUseCase.invoke(search ,filter )
+                .debounce(500)
+                .cachedIn(viewModelScope)
+        }
+    }
+
+    fun filterBy(value: String) {
+        if (this.filterBy.value == value) return
+        this.filterBy.value = value
+    }
+
+    fun searchBy(value: String) {
+        if (searchBy.value == value) return
+        searchBy.value = value
     }
 }

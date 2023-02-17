@@ -3,11 +3,54 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/dark_gray"
     tools:context=".presentation.ui.fragments.character.CharacterFragment">
 
-    <Button
-        android:id="@+id/btn"
-        android:text="click"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_characters"
+            android:paddingTop="@dimen/padding_44"
+            android:clipToPadding="false"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_filter"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/margin_16"
+        android:src="@drawable/ic_filter"
+        android:backgroundTint="@color/orange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:ignore="ContentDescription" />
+
+    <EditText
+        android:id="@+id/et_search"
+        android:layout_marginTop="@dimen/margin_4"
+        android:backgroundTint="@color/dark_gray"
+        android:background="@drawable/bg_et_search"
+        android:layout_marginHorizontal="@dimen/margin_16"
+        android:textColorHint="@android:color/darker_gray"
+        android:drawableTint="@android:color/darker_gray"
+        android:hint="@string/search"
+        android:textColor="@color/white"
+        android:paddingHorizontal="@dimen/padding_16"
+        android:drawableEnd="@drawable/ic_search"
+        android:layout_width="match_parent"
+        android:layout_height="38dp"
+        android:inputType="text"
+        tools:ignore="Autofill" />
+
+    <ProgressBar
+        android:id="@+id/p_bar"
+        android:visibility="gone"
+        android:indeterminateTint="@color/orange"
         android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>

@@ -2,4 +2,16 @@
     <string name="app_name">RickAndMorty</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="can_t_load_data">Oops, can\'t load data</string>
+    <string name="try_again">Try again</string>
+    <string name="origin">origin</string>
+    <string name="gender">gender</string>
+    <string name="species">species</string>
+    <string name="status">status</string>
+    <string name="alive">Alive</string>
+    <string name="dead">Dead</string>
+    <string name="unknown">unknown</string>
+    <string name="search">Search</string>
+    <string name="reset">Reset</string>
+    <string name="apply">Apply</string>
 </resources>

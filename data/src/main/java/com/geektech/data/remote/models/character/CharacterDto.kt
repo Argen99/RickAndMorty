@@ -1,6 +1,6 @@
 package com.geektech.data.remote.models.character
 
-data class ResultDto(
+data class CharacterDto(
     val id: Int,
     val name: String,
     val status: String,
@@ -8,7 +8,7 @@ data class ResultDto(
     val type: String,
     val gender: String,
     val origin: OriginDto,
-    val location: LocationDto,
+    val location: CharacterLocationDto,
     val image: String,
     val episode: List<String>,
     val url: String,

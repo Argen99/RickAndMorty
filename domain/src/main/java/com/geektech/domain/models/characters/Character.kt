@@ -1,4 +1,4 @@
-package com.geektech.domain.models
+package com.geektech.domain.models.characters
 
 data class Character(
     val id: Int,
@@ -8,7 +8,7 @@ data class Character(
     val type: String,
     val gender: String,
     val origin: Origin,
-    val location: Location,
+    val location: CharacterLocation,
     val image: String,
     val episode: List<String>,
     val url: String,

@@ -1,7 +1,12 @@
 package com.geektech.data.core.utils.mappers
 
+import com.geektech.data.remote.models.InfoDto
 import com.geektech.data.remote.models.character.*
 import com.geektech.domain.models.*
+import com.geektech.domain.models.characters.Character
+import com.geektech.domain.models.characters.CharacterLocation
+import com.geektech.domain.models.characters.Origin
+import com.geektech.domain.models.characters.RickAndMortyResponse
 
 fun InfoDto.toModel() = Info(
     count = count,
@@ -17,12 +22,12 @@ fun Info.toDto() = InfoDto(
     prev = prev
 )
 
-fun LocationDto.toModel() = Location(
+fun CharacterLocationDto.toModel() = CharacterLocation(
     name = name,
     url = url
 )
 
-fun Location.toDto() = LocationDto(
+fun CharacterLocation.toDto() = CharacterLocationDto(
     name = name,
     url = url
 )
@@ -37,7 +42,7 @@ fun Origin.toDto() = OriginDto(
     url = url
 )
 
-fun ResultDto.toModel() = Result(
+fun CharacterDto.toModel() = Character(
     id = id,
     name = name,
     status = status,
@@ -52,7 +57,7 @@ fun ResultDto.toModel() = Result(
     created = created
 )
 
-fun Result.toDto() = ResultDto(
+fun Character.toDto() = CharacterDto(
     id = id,
     name = name,
     status = status,
@@ -67,14 +72,14 @@ fun Result.toDto() = ResultDto(
     created = created
 )
 
-fun RickAndMortyResponseDto.toModel() = RickAndMortyResponse(
+fun CharacterResponseDto.toModel() = RickAndMortyResponse(
     info = info.toModel(),
     results = results.map {
         it.toModel()
     }
 )
 
-fun RickAndMortyResponse.toDto() = RickAndMortyResponseDto(
+fun RickAndMortyResponse.toDto() = CharacterResponseDto(
     info = info.toDto(),
     results = results.map {
         it.toDto()

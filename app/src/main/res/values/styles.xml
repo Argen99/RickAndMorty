@@ -1,10 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <style name="TabTextStyle" parent="TextAppearance.Design.Tab">
         <item name="textAllCaps">false</item>
-        <item name="android:textSize">18sp</item>
+        <item name="android:textSize">@dimen/text_18</item>
         <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="AppTextStyle" parent="Widget.AppCompat.TextView">
+        <item name="android:fontFamily">@font/misfits</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/text_14</item>
+    </style>
+
+    <style name="BottomSheetDialog" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/bottomSheetStyleWrapper</item>
+    </style>
+
+    <style name="bottomSheetStyleWrapper" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
+    <style name="BaseRadioButton" parent="Widget.AppCompat.CompoundButton.RadioButton">
+        <item name="android:button">@android:color/transparent</item>
+        <item name="android:elevation">8dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@drawable/radio_selector</item>
+        <item name="android:paddingVertical" tools:targetApi="o">@dimen/padding_8</item>
+        <item name="android:paddingHorizontal" tools:targetApi="o">@dimen/padding_16</item>
     </style>
 
 </resources>

@@ -11,9 +11,10 @@
         app:layout_constraintTop_toTopOf="parent"
         android:layout_width="match_parent"
         app:tabIndicatorHeight="5dp"
-        app:tabIndicatorColor="@color/dark_blue"
+        android:background="@color/dark_gray"
+        app:tabIndicatorColor="@color/orange"
         app:tabTextColor="@android:color/darker_gray"
-        app:tabSelectedTextColor="@color/dark_blue"
+        app:tabSelectedTextColor="@color/white"
         app:tabTextAppearance="@style/TabTextStyle"
         app:tabIndicator="@drawable/bg_tab_indicator"
         android:layout_height="wrap_content" />

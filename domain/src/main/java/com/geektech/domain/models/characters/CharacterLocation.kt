@@ -1,6 +1,6 @@
 package com.geektech.domain.models.characters
 
-data class Location(
+data class CharacterLocation(
     val name: String,
     val url: String
 )

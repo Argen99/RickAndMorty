@@ -1,9 +1,10 @@
 package com.geektech.domain.use_case
 
-import com.geektech.domain.repository.CharacterRepository
+import com.geektech.domain.repository.MainRepository
 
 class GetAllCharactersUseCase(
-    private val repository: CharacterRepository
+    private val repository: MainRepository
 ) {
-    operator fun invoke(page: Int?, status: String?) = repository.getAllCharacters(page, status)
+    operator fun invoke(name: String? ,status: String?) =
+        repository.getAllCharacters(name = name, status = status)
 }

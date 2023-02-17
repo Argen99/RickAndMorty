@@ -1,4 +1,6 @@
-package com.geektech.domain.models
+package com.geektech.domain.models.characters
+
+import com.geektech.domain.models.Info
 
 data class RickAndMortyResponse(
     val info: Info,
