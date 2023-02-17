@@ -20,10 +20,14 @@ val appModule = module {
     }
 
     viewModel<EpisodeViewModel> {
-        EpisodeViewModel()
+        EpisodeViewModel(
+            getAllEpisodesUseCase = get()
+        )
     }
 
     viewModel<LocationViewModel> {
-        LocationViewModel()
+        LocationViewModel(
+            getAllLocationsUseCase = get()
+        )
     }
 }
