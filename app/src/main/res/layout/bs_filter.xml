@@ -25,24 +25,30 @@
             android:layout_height="2dp"/>
 
         <RadioGroup
-            android:id="@+id/radio_group"
+            android:id="@+id/rg_status"
             android:padding="@dimen/padding_8"
-            android:layout_marginTop="@dimen/margin_32"
-            android:layout_marginBottom="@dimen/margin_16"
-            android:orientation="horizontal"
             android:gravity="center"
+            android:layout_marginTop="@dimen/margin_32"
+            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+            <com.google.android.material.textview.MaterialTextView
+                android:text="@string/status"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_16"
+                android:layout_marginEnd="@dimen/margin_20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
-            <RadioButton
+            <com.google.android.material.radiobutton.MaterialRadioButton
                 android:id="@+id/rb_alive"
                 android:text="@string/alive"
                 style="@style/BaseRadioButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
-            <RadioButton
+            <com.google.android.material.radiobutton.MaterialRadioButton
                 android:id="@+id/rb_dead"
                 android:text="@string/dead"
                 style="@style/BaseRadioButton"
@@ -50,8 +56,91 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
-            <RadioButton
+            <com.google.android.material.radiobutton.MaterialRadioButton
                 android:id="@+id/rb_unknown"
+                android:text="@string/unknown"
+                style="@style/BaseRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </RadioGroup>
+
+        <RadioGroup
+            android:id="@+id/rg_species"
+            android:padding="@dimen/padding_8"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/margin_32"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:text="@string/species"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_16"
+                android:layout_marginEnd="@dimen/margin_20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/rb_Human"
+                android:text="@string/human"
+                style="@style/BaseRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/rb_humanoid"
+                android:text="@string/humanoid"
+                style="@style/BaseRadioButton"
+                android:layout_marginHorizontal="@dimen/margin_16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/rb_alien"
+                android:text="@string/alien"
+                style="@style/BaseRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </RadioGroup>
+
+        <RadioGroup
+            android:id="@+id/rg_gender"
+            android:padding="@dimen/padding_8"
+            android:layout_marginTop="@dimen/margin_32"
+            android:layout_marginBottom="@dimen/margin_16"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:text="@string/gender"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_16"
+                android:layout_marginEnd="@dimen/margin_20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/rb_male"
+                android:text="@string/male"
+                style="@style/BaseRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/rb_female"
+                android:text="@string/female"
+                style="@style/BaseRadioButton"
+                android:layout_marginHorizontal="@dimen/margin_16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/rb_unknown_gender"
                 android:text="@string/unknown"
                 style="@style/BaseRadioButton"
                 android:layout_width="wrap_content"

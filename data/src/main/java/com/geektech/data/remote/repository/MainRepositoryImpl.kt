@@ -18,7 +18,7 @@ class MainRepositoryImpl(
     private val apiService: RickAndMortyApiService
 ): BaseRepository(), MainRepository {
 
-    override fun getAllCharacters(name: String? ,status: String?
+    override fun getAllCharacters(name: String? ,status: String?,species: String?,gender: String?
     ): Flow<PagingData<Character>> {
         return Pager(
             config = PagingConfig(
@@ -27,7 +27,8 @@ class MainRepositoryImpl(
                 initialLoadSize = 10
             ),
             pagingSourceFactory = {
-                CharacterPagingSource(apiService = apiService, name = name, status = status)
+                CharacterPagingSource(apiService = apiService, name = name,
+                    status = status, species = species, gender = gender)
             }
         ).flow
     }

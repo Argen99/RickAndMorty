@@ -15,4 +15,5 @@
     <dimen name="margin_2">2dp</dimen>
     <dimen name="padding_12">12dp</dimen>
     <dimen name="margin_20">20dp</dimen>
+    <dimen name="text_16">16sp</dimen>
 </resources>

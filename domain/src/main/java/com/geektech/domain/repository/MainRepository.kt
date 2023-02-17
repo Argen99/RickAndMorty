@@ -8,7 +8,8 @@ import kotlinx.coroutines.flow.Flow
 
 interface MainRepository {
 
-    fun getAllCharacters(name: String?,status: String?): Flow<PagingData<Character>>
+    fun getAllCharacters(name: String?,status: String?,
+                         species: String?,gender: String?): Flow<PagingData<Character>>
 
     fun getAllEpisodes(name: String?): Flow<PagingData<Episodes>>
 

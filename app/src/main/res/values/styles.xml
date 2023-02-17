@@ -27,7 +27,7 @@
         <item name="android:textColor">@color/white</item>
         <item name="android:background">@drawable/radio_selector</item>
         <item name="android:paddingVertical" tools:targetApi="o">@dimen/padding_8</item>
-        <item name="android:paddingHorizontal" tools:targetApi="o">@dimen/padding_16</item>
+        <item name="android:paddingHorizontal" tools:targetApi="o">@dimen/padding_8</item>
     </style>
 
 </resources>

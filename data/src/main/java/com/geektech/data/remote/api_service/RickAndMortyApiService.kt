@@ -12,7 +12,9 @@ interface RickAndMortyApiService {
     suspend fun getAllCharacters(
         @Query("page") page: Int?,
         @Query("name") name: String?,
-        @Query("status") status: String?
+        @Query("status") status: String?,
+        @Query("species") species: String?,
+        @Query("gender") gender: String?
     ) : CharacterResponseDto
 
     @GET("api/episode")

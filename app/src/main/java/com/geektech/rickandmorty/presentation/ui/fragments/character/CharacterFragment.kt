@@ -6,6 +6,7 @@ import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.viewbinding.ViewBinding
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.geektech.rickandmorty.R
 import com.geektech.rickandmorty.core.base.BaseFragment
@@ -29,18 +30,13 @@ class CharacterFragment : BaseFragment<FragmentCharacterBinding,
     override val binding by viewBinding(FragmentCharacterBinding::bind)
     override val viewModel by viewModel<CharacterViewModel>()
 
-    private var checkedRadioButtonId: Int? = null
     private val characterAdapter: CharacterPagingAdapter by lazy {
         CharacterPagingAdapter(requireContext(),this::onItemClick)
     }
 
-    override fun setupRequest() {
-        viewLifecycleOwner.lifecycleScope.launch {
-            viewModel.charactersFlow.collectLatest {
-                characterAdapter.submitData(it)
-            }
-        }
-    }
+    private var checkedStatusRadioButtonId: Int? = null
+    private var checkedGenderRadioButtonId: Int? = null
+    private var checkedSpeciesRadioButtonId: Int? = null
 
     override fun initialize() {
         val footerAdapter = DefaultLoadStateAdapter(this::tryAgain)
@@ -52,6 +48,9 @@ class CharacterFragment : BaseFragment<FragmentCharacterBinding,
     }
 
     override fun setupObservers() {
+
+        scrollingToTopWhenFiltering()
+
         characterAdapter.addLoadStateListener { state ->
             binding.pBar.isVisible = state.source.refresh is LoadState.Loading
             if (state.refresh is LoadState.NotLoading)
@@ -64,33 +63,53 @@ class CharacterFragment : BaseFragment<FragmentCharacterBinding,
             characterAdapter.refresh()
         }
 
-        binding.fabFilter.setOnClickListener {
-            val filerBinding = BsFilterBinding.inflate(layoutInflater)
-            val bottomSheet = BottomSheetDialog(requireContext(), R.style.BottomSheetDialog)
-            bottomSheet.setContentView(filerBinding.root)
-            bottomSheet.show()
-            checkedRadioButtonId?.let { filerBinding.radioGroup.check(it)}
-
-            filerBinding.apply.setOnClickListener {
-                checkedRadioButtonId = filerBinding.radioGroup.checkedRadioButtonId
-                val checkedRadioButton = filerBinding.root.findViewById<RadioButton?>(
-                    checkedRadioButtonId!!
-                )
-                viewModel.filterBy(checkedRadioButton?.text.toString())
-                bottomSheet.dismiss()
-            }
-            filerBinding.reset.setOnClickListener {
-                checkedRadioButtonId = null
-                viewModel.filterBy("")
-                bottomSheet.dismiss()
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewModel.charactersFlow.collectLatest {
+                characterAdapter.submitData(it)
             }
         }
 
         binding.etSearch.addTextChangedListener {
             viewModel.searchBy(it.toString())
         }
+    }
 
-        scrollingToTopWhenFiltering()
+    override fun setupClickListeners() {
+        binding.fabFilter.setOnClickListener {
+            val filerBinding = BsFilterBinding.inflate(layoutInflater)
+            val bottomSheet = BottomSheetDialog(requireContext(), R.style.BottomSheetDialog)
+            bottomSheet.setContentView(filerBinding.root)
+            bottomSheet.show()
+            checkedStatusRadioButtonId?.let { filerBinding.rgStatus.check(it) }
+            checkedGenderRadioButtonId?.let { filerBinding.rgGender.check(it) }
+            checkedSpeciesRadioButtonId?.let { filerBinding.rgSpecies.check(it) }
+
+            filerBinding.apply.setOnClickListener {
+                checkedStatusRadioButtonId = filerBinding.rgStatus.checkedRadioButtonId
+                checkedGenderRadioButtonId = filerBinding.rgGender.checkedRadioButtonId
+                checkedSpeciesRadioButtonId = filerBinding.rgSpecies.checkedRadioButtonId
+
+                val status = getCheckedRadioButtonText(filerBinding, checkedStatusRadioButtonId!!)
+                val gender = getCheckedRadioButtonText(filerBinding, checkedGenderRadioButtonId!!)
+                val species = getCheckedRadioButtonText(filerBinding, checkedSpeciesRadioButtonId!!)
+                viewModel.filterBy(status = status, gender = gender, species = species)
+                bottomSheet.dismiss()
+            }
+            filerBinding.reset.setOnClickListener {
+                checkedStatusRadioButtonId = null
+                checkedGenderRadioButtonId = null
+                checkedSpeciesRadioButtonId = null
+                viewModel.filterBy("", "","")
+                viewModel.searchBy("")
+                binding.etSearch.text = null
+                bottomSheet.dismiss()
+            }
+        }
+    }
+
+    private fun getCheckedRadioButtonText(binding: ViewBinding ,checkedRadioButtonId: Int): String? {
+        val statusCheckedRadioButton = binding.root.findViewById<RadioButton?>(checkedRadioButtonId)
+        return statusCheckedRadioButton?.text?.toString()
     }
 
     private fun onItemClick(id: String) {

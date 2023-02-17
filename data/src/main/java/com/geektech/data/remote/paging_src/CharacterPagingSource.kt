@@ -11,13 +11,15 @@ class CharacterPagingSource(
     private val apiService: RickAndMortyApiService,
     private val name: String?,
     private val status: String?,
+    private val species: String?,
+    private val gender: String?
     ) : PagingSource<Int, Character>() {
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Character> {
         val page = params.key ?: 1
         return try {
-            val response = apiService.getAllCharacters(
-                page = page, name = name, status = status).toModel()
+            val response = apiService.getAllCharacters(page = page, name = name,
+                status = status, species = species, gender = gender).toModel()
 
             val nextPageNumber = if (response.info.next == null) {
                 null

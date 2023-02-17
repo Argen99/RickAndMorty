@@ -14,4 +14,9 @@
     <string name="search">Search</string>
     <string name="reset">Reset</string>
     <string name="apply">Apply</string>
+    <string name="human">Human</string>
+    <string name="humanoid">Humanoid</string>
+    <string name="alien">Alien</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
 </resources>
