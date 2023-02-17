@@ -1,6 +1,6 @@
 package com.geektech.domain.models
 
-data class Result(
+data class Character(
     val id: Int,
     val name: String,
     val status: String,
