@@ -2,11 +2,11 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel target="1.8">
-      <module name="RickAndMorty.app" target="11" />
-      <module name="RickAndMorty.buildSrc" target="11" />
-      <module name="RickAndMorty.buildSrc.main" target="11" />
-      <module name="RickAndMorty.buildSrc.test" target="11" />
-      <module name="RickAndMorty.data" target="11" />
+      <module name="RickAndMorty.app" target="17" />
+      <module name="RickAndMorty.buildSrc" target="17" />
+      <module name="RickAndMorty.buildSrc.main" target="17" />
+      <module name="RickAndMorty.buildSrc.test" target="17" />
+      <module name="RickAndMorty.data" target="17" />
     </bytecodeTargetLevel>
   </component>
 </project>
