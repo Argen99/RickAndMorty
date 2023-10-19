@@ -1,6 +1,5 @@
 # RickAndMorty
-![sc_sharacter.jpeg](app%2Fsrc%2Fmain%2Fres%2Fdrawable%2Fscreens%2Fsc_sharacter.jpeg)
-![sc_filter.jpeg](app%2Fsrc%2Fmain%2Fres%2Fdrawable%2Fscreens%2Fsc_filter.jpeg)
-![sc_episode.jpeg](app%2Fsrc%2Fmain%2Fres%2Fdrawable%2Fscreens%2Fsc_episode.jpeg)
-![sc_location.jpeg](app%2Fsrc%2Fmain%2Fres%2Fdrawable%2Fscreens%2Fsc_location.jpeg)
-![test.jpg](app%2Fsrc%2Fmain%2Fres%2Fdrawable%2Fscreens%2Ftest.jpg)
+![sc_character.jpg](app%2Fsrc%2Fmain%2Fres%2Fdrawable%2Fscreens%2Fsc_character.jpg)
+![sc_filter.jpg](app%2Fsrc%2Fmain%2Fres%2Fdrawable%2Fscreens%2Fsc_filter.jpg)
+![sc_episode.jpg](app%2Fsrc%2Fmain%2Fres%2Fdrawable%2Fscreens%2Fsc_episode.jpg)
+![sc_location.jpg](app%2Fsrc%2Fmain%2Fres%2Fdrawable%2Fscreens%2Fsc_location.jpg)
